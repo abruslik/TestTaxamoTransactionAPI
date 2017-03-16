@@ -1,0 +1,14 @@
+{
+    "name": "application-name",
+    "version": "0.0.1",
+    "devDependencies": {
+        "express": "4.15.2",
+        "chakram": "1.5.0",
+        "mocha": "2.4.5",
+        "chance" : "1.0.6",
+        "mochawesome": "2.0.4"
+    },
+    "scripts":{
+        "test": "node node_modules/mocha/bin/mocha --timeout 10000 --reporter mochawesome"
+    }
+}
