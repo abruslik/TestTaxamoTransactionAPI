@@ -12,7 +12,7 @@ var config = {
         updateTransaction: '/api/v1/transactions/:key',
         confirmTransaction: '/api/v1/transactions/:key/confirm',
         unconfirmTransaction: '/api/v1/transactions/:key/unconfirm',
-        deleteTransaction: '/api/v1/transactions/tr_test_:key'
+        deleteTransaction: '/api/v1/transactions/:key'
     }
 };
 config.headers = {

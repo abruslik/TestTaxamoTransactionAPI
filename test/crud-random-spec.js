@@ -142,7 +142,7 @@ for (var i=0;i<config.crud_attempt;i++){
                     expect(res.body.transaction).to.have.property('transaction_lines');
                     expect(res.body.transaction.transaction_lines[0]).to.have.deep.property('custom_id').eql(new_payload.transaction.transaction_lines[0].custom_id);
                     //NOTE: server side returns rounded value
-                    expect(res.body.transaction.transaction_lines[0]).to.have.deep.property('amount').eql(new_payload.transaction.transaction_lines[0].amount);
+                    expect(res.body.transaction.transaction_lines[0]).to.have.deep.property('amount').eql(Number(new_payload.transaction.transaction_lines[0].amount.toFixed(2)));
                 });
         });
 
@@ -164,7 +164,8 @@ for (var i=0;i<config.crud_attempt;i++){
 
         it('Delete transaction by id.',function(){
             return chakram.delete(config.host + config.endpoints.deleteTransaction.replace(':key', global.crud_transaction_id),
-                    config.headers)
+                {},
+                config.headers)
                 .then(function(res){
                     logging.write(res);
                     expect(res.body).to.deep.equal({"success": true});
